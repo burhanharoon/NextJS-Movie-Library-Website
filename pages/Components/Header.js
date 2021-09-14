@@ -3,7 +3,6 @@ import Link from 'next/link'
 export const Header = () => {
     return (
         <div>
-
             <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
                 <div className="flex-none hidden lg:flex">
                     <button className="btn btn-square btn-ghost">
@@ -12,12 +11,14 @@ export const Header = () => {
                         </svg>
                     </button>
                 </div>
-                <Link href="/products">
-                    <div className="flex-1 hidden px-2 mx-2 lg:flex">
-                        <span className="text-lg font-bold">
-                            Movies
-                        </span>
-                    </div>
+                <Link href="/">
+                    
+                        <div className="flex-1 hidden px-2 mx-2 lg:flex cursor-pointer">
+                            <span className="text-lg font-bold">
+                                Movies
+                            </span>
+                        </div>
+                    
                 </Link>
                 <div className="flex-1 lg:flex-none">
                     <div className="form-control">
