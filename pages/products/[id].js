@@ -24,17 +24,19 @@ const Post = () => {
     const router = useRouter()
     const { id } = router.query
 
-    const movie = movies.filter(movie => movie.id == id)
-    console.log(movie)
+    const movie = movies.find(movie => movie.id == id)
 
     return (
         <div className='flex  flex-col justify-center items-center h-screen'>
             <Link href="/products">
                 <button className='btn btn-outline btn-xs md:btn-sm lg:btn-md xl:btn-lg'>BACK</button>
             </Link>
-            <img className='m-4' src={movie[0].img} alt="" />
-            <h1 className=" m-4 font-bold"> Product Title: {movie[0].title}</h1>
-            <h3 className='m-4'>Description: {movie[0].description}</h3>
+            <div className="flex mt-4 items-center">
+                <img className='m-4' src={movie.img} alt="" />
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/neY2xVmOfUM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </div>
+            <h1 className=" m-4 font-bold "> Movie Title: <span className="capitalize"> {movie.title} </span></h1>
+            <h3 className='m-4'>Description: {movie.description}</h3>
         </div>
     )
 }

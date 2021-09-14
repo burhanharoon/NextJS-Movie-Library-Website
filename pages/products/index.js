@@ -29,16 +29,16 @@ const Products = () => {
             <div className='flex flex-wrap justify-center gap-4'>
 
                 {movies.map(movie =>
-                    <div class="card shadow-xl image-full w-60">
+                    <div key={movie.idS} className="card shadow-xl image-full w-60">
                         <figure>
                             <img src={movie.img} />
                         </figure>
-                        <div class="justify-end card-body">
-                            <h2 class="card-title capitalize">{movie.title}</h2>
+                        <div className="justify-end card-body">
+                            <h2 className="card-title capitalize">{movie.title}</h2>
 
-                            <div class="card-actions">
+                            <div className="card-actions">
                                 <Link href={`/products/${movie.id}`}>
-                                    <button class="btn btn-primary">Watch Now</button>
+                                    <button className="btn btn-primary">Watch Now</button>
                                 </Link>
 
                             </div>
