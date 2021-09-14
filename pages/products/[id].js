@@ -1,64 +1,40 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-const products = [
+import Link from 'next/link'
+const movies = [
     {
         id: 100,
-        img: "https://m.media-amazon.com/images/I/61WgmLgwuQL._AC_UY218_.jpg",
-        title: "Razer Cynosa Chroma Gaming Keyboard: Individually Backlit RGB Keys",
-        price: 39.99,
+        img: "https://resizing.flixster.com/gG9jEpn7NVg5pYWwQidlxiBJ3HA=/206x305/v2/https://flxt.tmsimg.com/NowShowing/48435/48435_aa.jpg",
+        title: "Batman Begins",
+        description: "After witnessing his parents' death, Bruce learns the art of fighting to confront injustice.",
         rating: 4,
     },
     {
         id: 101,
-        img: "https://m.media-amazon.com/images/I/71pzrs70x4L._AC_UL320_.jpg",
-        title: "MASTERTOP 20PCS Vacuum Storage Bags",
-        price: 2,
-        rating: 4
+        img: "data:image/jpeg;base64,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",
+        title: "the dark knight",
+        description: "The Joker, a psychopathic criminal mastermind who offers to kill Batman and bring the city to its knees.",
+        rating: 4,
     },
-    {
-        id: 102,
-        img: "https://images-na.ssl-images-amazon.com/images/I/41k21rsIfzS.jpg",
-        title: "Acer Predator Helios 300 PH315-54-760S Gaming Laptop | Intel i7-11800H",
-        price: 1299,
-        rating: 5
-    },
-    {
-        id: 103,
-        img: "https://m.media-amazon.com/images/I/81XvEK3g4KL._AC_UL320_.jpg",
-        title: "PowerColor Red Devil AMD Radeon RX 6600 XT Gaming Graphics Card with 8GB GDDR6 Memory",
-        price: 880,
-        rating: 3
-    },
-    {
-        id: 104,
-        img: "https://m.media-amazon.com/images/I/61WgmLgwuQL._AC_UY218_.jpg",
-        title: "Razer Cynosa Chroma Gaming Keyboard: Individually Backlit RGB Keys ",
-        price: 39.99,
-        rating: 4
-    },
-    {
-        id: 105,
-        img: "https://m.media-amazon.com/images/I/71pzrs70x4L._AC_UL320_.jpg",
-        title: "MASTERTOP 20PCS Vacuum Storage Bags",
-        price: 2,
-        rating: 4
-    }
-]
 
+]
 
 const Post = () => {
 
     const router = useRouter()
     const { id } = router.query
 
-    const product = products.filter(product => product.id == id)
-    console.log(product)
+    const movie = movies.filter(movie => movie.id == id)
+    console.log(movie)
 
     return (
         <div className='flex  flex-col justify-center items-center h-screen'>
-            <img className='m-4' src={product[0].img} alt="" />
-            <h1 className=" m-4 font-bold"> Product Title: {product[0].title}</h1>
-            <h3 className='m-4'>Price: {product[0].price}</h3>
+            <Link href="/products">
+                <button className='btn btn-outline btn-xs md:btn-sm lg:btn-md xl:btn-lg'>BACK</button>
+            </Link>
+            <img className='m-4' src={movie[0].img} alt="" />
+            <h1 className=" m-4 font-bold"> Product Title: {movie[0].title}</h1>
+            <h3 className='m-4'>Description: {movie[0].description}</h3>
         </div>
     )
 }
