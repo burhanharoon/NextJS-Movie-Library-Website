@@ -15,7 +15,7 @@ export const Header = () => {
                     
                         <div className="flex-1 hidden px-2 mx-2 lg:flex cursor-pointer">
                             <span className="text-lg font-bold">
-                                Movies
+                                Movie Mania
                             </span>
                         </div>
                     

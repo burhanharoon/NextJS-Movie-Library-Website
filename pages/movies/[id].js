@@ -28,7 +28,7 @@ const Post = () => {
 
     return (
         <div className='flex  flex-col justify-center items-center h-screen'>
-            <Link href="/products">
+            <Link href="/movies">
                 <button className='btn btn-outline btn-xs md:btn-sm lg:btn-md xl:btn-lg'>BACK</button>
             </Link>
             <div className="flex mt-4 items-center">

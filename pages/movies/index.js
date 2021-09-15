@@ -18,8 +18,7 @@ const movies = [
 
 ]
 
-
-const Products = () => {
+const Movies = () => {
     let rating
     return (
         <div className='p-6'>
@@ -37,7 +36,7 @@ const Products = () => {
                             <h2 className="card-title capitalize">{movie.title}</h2>
 
                             <div className="card-actions">
-                                <Link href={`/products/${movie.id}`}>
+                                <Link href={`/movies/${movie.id}`}>
                                     <button className="btn btn-primary">Watch Now</button>
                                 </Link>
 
@@ -51,4 +50,4 @@ const Products = () => {
     )
 }
 
-export default Products
+export default Movies
